@@ -1,0 +1,50 @@
+openapi: "3.0.0"
+info:
+  description: "Automated Company Information Collection and Distribution public API for retrieving data for invoices."
+  version: "0.0.1"
+  title: " Invoice API"
+
+paths:
+  /invoice{CVR}:
+    get:
+      operationId: "getInvoice"
+      parameters:
+        - in: header
+          name: Auth
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: CVR
+          required: true
+          schema:
+            type: string
+      responses:
+          200:
+            description: "Company data returned"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CompanyData'
+          400:
+            description: "Bad request"
+            content:
+              application/json:
+                schema:
+                  type: string
+
+components:
+  schemas:
+    CompanyData:
+      type: "object"
+      required:
+        - "CVR"
+        - "CompanyName"
+        - "Address"
+      properties:
+        CVR:
+          type: "string"
+        CompanyName:
+          type: "string"
+        Address:
+          type: "string"
