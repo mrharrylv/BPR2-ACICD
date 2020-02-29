@@ -5,7 +5,7 @@ info:
   title: " Invoice API"
 
 paths:
-  /invoice{CVR}:
+  /invoice/{CVR}:
     get:
       operationId: "getInvoice"
       parameters:
