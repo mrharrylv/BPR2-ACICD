@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%d{dd MMM yyyy HH:mm:ss} %-5level %-50c{-1} - %msg%n%throwable}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+
+        <Logger level="info" name="DK.HAPK" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="warn">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
